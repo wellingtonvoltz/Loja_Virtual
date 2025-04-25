@@ -1,10 +1,6 @@
 package com.dev.backend.entity;
 
-
-
 import java.util.Date;
-
-import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,35 +11,33 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import jakarta.validation.constraints.Email;
 import lombok.Data;
 
 @Entity
-@Table(name = "pessoa")
+@Table(name = "produto")
 @Data
-public class Pessoa {
-
+public class Produto {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String nome;
+    @ManyToOne
+    @JoinColumn(name = "idMarca")
+    private Marca marca;
 
     @ManyToOne
-    @JoinColumn(name = "idCidade")
-    private Cidade cidade;
+    @JoinColumn(name = "idCategoria")
+    private Categoria categoria;
 
-    @CPF(message = "Cpf inválido!")
-    private String cpf;
-    @Email(message = "Email inválido!")
-    private String email;
-    private String senha;
-    private String endereco;
-    private String cep;
+    private String nome;
+    private String descricaoCurta;
+    private String descricaoLonga;
+    private Double valorCusto;
+    private Double valorVenda;
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
-    
 }

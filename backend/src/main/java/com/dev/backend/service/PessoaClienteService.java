@@ -9,7 +9,6 @@ import com.dev.backend.dto.PessoaClienteRequestDTO;
 import com.dev.backend.entity.Pessoa;
 import com.dev.backend.repository.PessoaClienteRepository;
 
-
 @Service
 public class PessoaClienteService {
 
@@ -28,10 +27,8 @@ public class PessoaClienteService {
         pessoa.setDataCriacao(new Date());
         Pessoa pessoaNova = pessoaRepository.saveAndFlush(pessoa);
         permissaoPessoaService.vincularPessoaPermissaoCliente(pessoaNova);
-        emailService.enviarEmailTexto(
-                pessoaNova.getEmail(), 
-                "Cadastro na Loja Virtual",
-                "O registro na loja foi realizado com sucesso. Em breve você receberá a senha por email!");
+        //emailService.enviarEmailTexto(pessoaNova.getEmail(), "Cadastro na Loja Virtual", "O registro na loja foi realizado com sucesso. Em breve você receberá a senha por email!");
+        email.se
         return pessoaNova;
     }
 

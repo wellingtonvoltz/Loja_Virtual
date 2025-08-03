@@ -40,6 +40,9 @@ public class Pessoa {
     private String cpf;
     @Email(message = "Email inválido!")
     private String email;
+    private String codigoRecuperacaoSenha;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dataEnvioCodigo;
     private String senha;
     private String endereco;
     private String cep;

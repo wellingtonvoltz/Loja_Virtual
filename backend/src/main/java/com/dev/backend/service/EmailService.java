@@ -41,7 +41,7 @@ public class EmailService {
         }
     }
 
-    public void enviar(String destinatario, String titulo, Map<String, Object> propriedades) {
+    public void enviarEmailTemplate(String destinatario, String titulo, Map<String, Object> propriedades) {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         try {
 
